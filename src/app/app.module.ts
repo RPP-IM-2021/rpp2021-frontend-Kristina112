@@ -25,7 +25,7 @@ import { AppComponent } from './app.component';
 import { NacionalnostComponent } from './nacionalnost/nacionalnost.component';
 import { LigaComponent } from './liga/liga.component';
 //import { TimComponent } from './tim/tim.component';
-//import { IgracComponent } from './igrac/igrac.component';
+import { IgracComponent } from './igrac/igrac.component';
 
 import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
@@ -35,8 +35,8 @@ import { NacionalnostService } from './service/nacionalnost.service';
 import { NacionalnostDialogComponent } from './dialog/nacionalnost-dialog/nacionalnost-dialog.component';
 import { LigaDialogComponent } from './dialog/liga-dialog/liga-dialog.component';
 import { LigaService } from './service/liga.service';
-// import { IgracDialogComponent } from './dialog/igrac-dialog/igrac-dialog.component';
-// import { IgracService } from './service/igrac.service';
+import { IgracDialogComponent } from './dialog/igrac-dialog/igrac-dialog.component';
+import { IgracService } from './service/igrac.service';
 // import { TimService } from './service/tim.service';
 // import { TimDialogComponent } from './dialog/tim-dialog/tim-dialog.component';
 
@@ -49,6 +49,7 @@ const Routes = [
             {path: 'about', component: AboutComponent},
             {path: 'liga', component: LigaComponent},
             {path: 'nacionalnost', component: NacionalnostComponent},
+            {path: 'igrac', component: IgracComponent},
             {path: '', redirectTo: 'home', pathMatch: 'full'}];
 
 @NgModule({
@@ -60,7 +61,9 @@ const Routes = [
 	  LigaComponent,
 	  LigaDialogComponent,
     NacionalnostComponent,
-	  NacionalnostDialogComponent
+	  NacionalnostDialogComponent,
+    IgracComponent,
+	  IgracDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ const Routes = [
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
 		LigaService,
-    NacionalnostService
+    NacionalnostService,
+    IgracService
 ],
   bootstrap: [AppComponent]
 })
