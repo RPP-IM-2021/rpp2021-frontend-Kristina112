@@ -24,7 +24,7 @@ import { AppComponent } from './app.component';
 
 import { NacionalnostComponent } from './nacionalnost/nacionalnost.component';
 import { LigaComponent } from './liga/liga.component';
-//import { TimComponent } from './tim/tim.component';
+import { TimComponent } from './tim/tim.component';
 import { IgracComponent } from './igrac/igrac.component';
 
 import { HomeComponent } from './core/home/home.component';
@@ -37,8 +37,8 @@ import { LigaDialogComponent } from './dialog/liga-dialog/liga-dialog.component'
 import { LigaService } from './service/liga.service';
 import { IgracDialogComponent } from './dialog/igrac-dialog/igrac-dialog.component';
 import { IgracService } from './service/igrac.service';
-// import { TimService } from './service/tim.service';
-// import { TimDialogComponent } from './dialog/tim-dialog/tim-dialog.component';
+import { TimService } from './service/tim.service';
+import { TimDialogComponent } from './dialog/tim-dialog/tim-dialog.component';
 
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
@@ -50,6 +50,7 @@ const Routes = [
             {path: 'liga', component: LigaComponent},
             {path: 'nacionalnost', component: NacionalnostComponent},
             {path: 'igrac', component: IgracComponent},
+            {path: 'tim', component: TimComponent},
             {path: '', redirectTo: 'home', pathMatch: 'full'}];
 
 @NgModule({
@@ -63,7 +64,9 @@ const Routes = [
     NacionalnostComponent,
 	  NacionalnostDialogComponent,
     IgracComponent,
-	  IgracDialogComponent
+	  IgracDialogComponent,
+    TimComponent,
+	  TimDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +95,8 @@ const Routes = [
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
 		LigaService,
     NacionalnostService,
-    IgracService
+    IgracService,
+    TimService
 ],
   bootstrap: [AppComponent]
 })
