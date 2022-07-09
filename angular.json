@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rpp2022-frontend": {
+    "rpp2021-frontend-kristina112": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rpp2022-frontend",
+            "outputPath": "dist/rpp2021-frontend-Kristina112",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rpp2022-frontend:build:production"
+              "browserTarget": "rpp2021-frontend-kristina112:build:production"
             },
             "development": {
-              "browserTarget": "rpp2022-frontend:build:development"
+              "browserTarget": "rpp2021-frontend-kristina112:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rpp2022-frontend:build"
+            "browserTarget": "rpp2021-frontend-kristina112:build"
           }
         },
         "test": {
@@ -94,7 +94,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -102,5 +102,5 @@
       }
     }
   },
-  "defaultProject": "rpp2022-frontend"
+  "defaultProject": "rpp2021-frontend-Kristina112"
 }
