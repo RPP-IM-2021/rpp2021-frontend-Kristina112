@@ -14,7 +14,7 @@ import { IgracService } from '../service/igrac.service';
 })
 export class IgracComponent implements OnInit {
 
-  displayedColumns = ['id', 'ime', 'prezime', "brojReg", "datumRodjenja"];
+  displayedColumns = ['id', 'ime', 'prezime', 'brojReg', 'datumRodjenja', 'actions'];
 
   dataSource: MatTableDataSource<Igrac>;
 

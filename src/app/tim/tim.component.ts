@@ -14,7 +14,7 @@ import { TimService } from '../service/tim.service';
 })
 export class TimComponent implements OnInit {
 
-  displayedColumns = ['id', 'naziv', 'sediste', "osnovan"];
+  displayedColumns = ['id', 'naziv', 'sediste', 'osnovan', 'actions'];
 
   dataSource: MatTableDataSource<Tim>;
 

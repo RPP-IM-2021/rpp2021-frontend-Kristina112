@@ -7,10 +7,10 @@ import { Liga } from '../model/liga.model';
 export class LigaService {
 
   //End Point u Development modu
-  //private readonly API_URL = 'http://localhost:8082/liga/';
+  private readonly API_URL = 'http://localhost:8080/liga';
 
   //End Point u Deployment modu
-  private readonly API_URL = 'https://rpp-backend.herokuapp.com/liga/';
+  //private readonly API_URL = 'https://rpp-backend.herokuapp.com/liga/';
 
   dataChange: BehaviorSubject<Liga[]> = new BehaviorSubject<Liga[]>([]);
 
@@ -19,7 +19,7 @@ export class LigaService {
   }
 
   public getAllLiga(): Observable<Liga[]> {
-    this.httpClient.get<Liga[]>(this.API_URL).subscribe(data => {
+    this.httpClient.get<Liga[]>(this.API_URL + "-all").subscribe(data => {
       this.dataChange.next(data);
     },
     (error: HttpErrorResponse) => {

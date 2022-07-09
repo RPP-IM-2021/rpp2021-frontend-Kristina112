@@ -14,7 +14,7 @@ import { NacionalnostService } from '../service/nacionalnost.service';
 })
 export class NacionalnostComponent implements OnInit {
 
-  displayedColumns = ['id', 'naziv', 'skracenica'];
+  displayedColumns = ['id', 'naziv', 'skracenica', 'actions'];
 
   dataSource: MatTableDataSource<Nacionalnost>;
 

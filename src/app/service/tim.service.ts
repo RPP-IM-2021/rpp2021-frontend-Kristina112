@@ -7,10 +7,10 @@ import { Tim } from '../model/tim.model';
 export class TimService {
 
   //End Point u Development modu
-  //private readonly API_URL = 'http://localhost:8082/tim/';
+  private readonly API_URL = 'http://localhost:8080/tim';
 
   //End Point u Deployment modu
-  private readonly API_URL = 'https://rpp-backend.herokuapp.com/tim/';
+  //private readonly API_URL = 'https://rpp-backend.herokuapp.com/tim';
 
   dataChange: BehaviorSubject<Tim[]> = new BehaviorSubject<Tim[]>([]);
 
@@ -19,7 +19,7 @@ export class TimService {
   }
 
   public getAllTim(): Observable<Tim[]> {
-    this.httpClient.get<Tim[]>(this.API_URL).subscribe(data => {
+    this.httpClient.get<Tim[]>(this.API_URL + "-all").subscribe(data => {
       this.dataChange.next(data);
     },
     (error: HttpErrorResponse) => {

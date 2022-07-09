@@ -14,7 +14,7 @@ import { LigaService } from '../service/liga.service';
 })
 export class LigaComponent implements OnInit {
 
-  displayedColumns = ['id', 'naziv', 'oznaka'];
+  displayedColumns = ['id', 'naziv', 'oznaka', 'actions'];
 
   //dataSource: Observable<Liga[]>;
   dataSource: MatTableDataSource<Liga>;

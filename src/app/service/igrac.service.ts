@@ -7,10 +7,10 @@ import { Igrac } from '../model/igrac.model';
 export class IgracService {
 
   //End Point u Development modu
-  //private readonly API_URL = 'http://localhost:8082/liga/';
+  private readonly API_URL = 'http://localhost:8080/igrac';
 
   //End Point u Deployment modu
-  private readonly API_URL = 'https://rpp-backend.herokuapp.com/igrac/';
+  //private readonly API_URL = 'https://rpp-backend.herokuapp.com/igrac/';
 
   dataChange: BehaviorSubject<Igrac[]> = new BehaviorSubject<Igrac[]>([]);
 
@@ -19,7 +19,7 @@ export class IgracService {
   }
 
   public getAllIgrac(): Observable<Igrac[]> {
-    this.httpClient.get<Igrac[]>(this.API_URL).subscribe(data => {
+    this.httpClient.get<Igrac[]>(this.API_URL + "-all").subscribe(data => {
       this.dataChange.next(data);
     },
     (error: HttpErrorResponse) => {
