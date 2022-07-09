@@ -22,7 +22,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
-//import { NacionalnostComponent } from './nacionalnost/nacionalnost.component';
+import { NacionalnostComponent } from './nacionalnost/nacionalnost.component';
 import { LigaComponent } from './liga/liga.component';
 //import { TimComponent } from './tim/tim.component';
 //import { IgracComponent } from './igrac/igrac.component';
@@ -31,8 +31,8 @@ import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
 import { AuthorComponent } from './core/author/author.component';
 
-// import { NacionalnostService } from './service/nacionalnost.service';
-// import { NacionalnostDialogComponent } from './dialog/nacionalnost-dialog/nacionalnost-dialog.component';
+import { NacionalnostService } from './service/nacionalnost.service';
+import { NacionalnostDialogComponent } from './dialog/nacionalnost-dialog/nacionalnost-dialog.component';
 import { LigaDialogComponent } from './dialog/liga-dialog/liga-dialog.component';
 import { LigaService } from './service/liga.service';
 // import { IgracDialogComponent } from './dialog/igrac-dialog/igrac-dialog.component';
@@ -48,6 +48,7 @@ const Routes = [
             {path: 'author', component: AuthorComponent},
             {path: 'about', component: AboutComponent},
             {path: 'liga', component: LigaComponent},
+            {path: 'nacionalnost', component: NacionalnostComponent},
             {path: '', redirectTo: 'home', pathMatch: 'full'}];
 
 @NgModule({
@@ -57,7 +58,9 @@ const Routes = [
     AboutComponent,
     AuthorComponent,
 	  LigaComponent,
-	  LigaDialogComponent
+	  LigaDialogComponent,
+    NacionalnostComponent,
+	  NacionalnostDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,8 @@ const Routes = [
     RouterModule.forRoot(Routes)
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
-		LigaService
+		LigaService,
+    NacionalnostService
 ],
   bootstrap: [AppComponent]
 })
