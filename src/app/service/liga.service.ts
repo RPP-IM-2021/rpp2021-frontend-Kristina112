@@ -7,8 +7,15 @@ import { Liga } from '../model/liga.model';
 export class LigaService {
 
   //End Point u Development modu
+<<<<<<< HEAD
   private readonly API_URL = 'http://localhost:8080/liga/';
   private readonly API_URL_P = 'http://localhost:8080/liga/';
+=======
+  //private readonly API_URL = 'http://localhost:8082/liga/';
+
+  //End Point u Deployment modu
+  private readonly API_URL = 'https://rpp-backend.herokuapp.com/liga/';
+>>>>>>> master
 
   dataChange: BehaviorSubject<Liga[]> = new BehaviorSubject<Liga[]>([]);
 
@@ -39,4 +46,8 @@ export class LigaService {
     this.httpClient.delete(this.API_URL + id).subscribe();
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

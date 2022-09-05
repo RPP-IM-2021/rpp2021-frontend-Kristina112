@@ -14,7 +14,11 @@ import { LigaService } from '../service/liga.service';
 })
 export class LigaComponent implements OnInit {
 
+<<<<<<< HEAD
   displayedColumns = ['id', 'naziv', 'oznaka', 'actions'];
+=======
+  displayedColumns = ['id', 'naziv', 'oznaka'];
+>>>>>>> master
 
   //dataSource: Observable<Liga[]>;
   dataSource: MatTableDataSource<Liga>;
@@ -40,8 +44,11 @@ export class LigaComponent implements OnInit {
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch(property) {
           case 'id': return data[property];
+<<<<<<< HEAD
           case 'naziv': return data[property];
           case 'oznaka': return data[property];
+=======
+>>>>>>> master
           default: return "default";
         }
       };
@@ -52,7 +59,11 @@ export class LigaComponent implements OnInit {
   }
 
   public openDialog(flag: number, id: number, naziv: string, oznaka: string) {
+<<<<<<< HEAD
     const dialog = this.dialog.open(LigaDialogComponent, {data: {id: id, naziv: naziv, oznaka: oznaka}});
+=======
+    const dialog = this.dialog.open(LigaDialogComponent, {data: {id: id, oznaka: oznaka, naziv: naziv}});
+>>>>>>> master
     dialog.componentInstance.flag = flag;
     dialog.afterClosed().subscribe(result => {
       if (result === 1) {
@@ -67,4 +78,8 @@ export class LigaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master

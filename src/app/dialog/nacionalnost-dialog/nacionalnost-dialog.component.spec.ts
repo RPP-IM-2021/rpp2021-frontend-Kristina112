@@ -22,4 +22,8 @@ describe('NacionalnostDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> master

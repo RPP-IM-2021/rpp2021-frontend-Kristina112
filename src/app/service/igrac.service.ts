@@ -7,8 +7,15 @@ import { Igrac } from '../model/igrac.model';
 export class IgracService {
 
   //End Point u Development modu
+<<<<<<< HEAD
   private readonly API_URL = 'http://localhost:8080/igrac/';
   private readonly API_URL_P = 'http://localhost:8080/igrac/';
+=======
+  //private readonly API_URL = 'http://localhost:8082/liga/';
+
+  //End Point u Deployment modu
+  private readonly API_URL = 'https://rpp-backend.herokuapp.com/igrac/';
+>>>>>>> master
 
   dataChange: BehaviorSubject<Igrac[]> = new BehaviorSubject<Igrac[]>([]);
 
@@ -26,7 +33,11 @@ export class IgracService {
 
     return this.dataChange.asObservable();
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> master
   public addIgrac(igrac: Igrac): void {
     this.httpClient.post(this.API_URL, igrac).subscribe();
   }
@@ -39,4 +50,8 @@ export class IgracService {
     this.httpClient.delete(this.API_URL + id).subscribe();
   }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
