@@ -34,7 +34,7 @@ export class NacionalnostDialogComponent implements OnInit {
 
   public delete(): void {
     this.nacionalnostService.deleteNacionalnost(this.data.id);
-    this.snackBar.open("UspeŠno obrisana nacionalnost ' " + this.data.id, "U redu", {duration: 2000});
+    this.snackBar.open("Uspešno obrisana nacionalnost ' " + this.data.id, "U redu", {duration: 2000});
   }
 
   public cancel(): void {

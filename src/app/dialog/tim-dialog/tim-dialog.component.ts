@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Liga } from 'src/app/model/liga.model';
@@ -15,8 +16,7 @@ export class TimDialogComponent implements OnInit {
 
   public flag: number;
 
-  tim: Tim[];
-  liga: Liga[];
+  lige: Liga[];
 
   constructor(public snackBar: MatSnackBar,
               public dialogRef: MatDialogRef<TimDialogComponent>,
@@ -26,28 +26,35 @@ export class TimDialogComponent implements OnInit {
               public ligaService: LigaService ) { }
 
   ngOnInit(): void {
-    this.ligaService.getAllLiga().subscribe(liga =>
-    this.liga = liga);
+    this.ligaService.getAllLiga().subscribe(lige =>
+    this.lige = lige);
   }
 
   public add(): void {
     this.timService.addTim(this.data);
-    this.snackBar.open('Uspešno dodata tim ' + this.data.id, 'Uredu', {duration: 2000});
+    this.snackBar.open('Uspešno dodat tim ' + this.data.naziv, 'U redu', {duration: 2000});
   }
 
   public update(): void {
     this.timService.updateTim(this.data);
-    this.snackBar.open('Uspešno izmenjena tim ' + this.data.id, "Uredu", {duration: 2000});
+    this.snackBar.open('Uspešno izmenjen tim ' + this.data.id, "U redu", {duration: 2000});
   }
 
   public delete(): void {
     this.timService.deleteTim(this.data.id);
-    this.snackBar.open("UspeŠno obrisana porudžbina ' " + this.data.id, "Uredu", {duration: 2000});
+    this.snackBar.open("Uspešno obrisan tim ' " + this.data.id, "U redu", {duration: 2000});
   }
 
   public cancel(): void {
     this.dialogRef.close();
-    this.snackBar.open("Odustali ste", 'Uredu', {duration:2000});
+    this.snackBar.open("Odustali ste", 'U redu', {duration:2000});
+  }
+
+  compareTo(a: any, b: any) {
+    if (a === null || b === null) {
+      return false;
+    }
+    return a.id === b.id;
   }
 
 }

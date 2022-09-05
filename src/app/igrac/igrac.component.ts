@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IgracDialogComponent } from '../dialog/igrac-dialog/igrac-dialog.component';
 import { Igrac } from '../model/igrac.model';
+import { Nacionalnost } from '../model/nacionalnost.model';
+import { Tim } from '../model/tim.model';
 import { IgracService } from '../service/igrac.service';
 
 @Component({
@@ -14,7 +16,7 @@ import { IgracService } from '../service/igrac.service';
 })
 export class IgracComponent implements OnInit {
 
-  displayedColumns = ['id', 'ime', 'prezime', "brojReg", "datumRodjenja"];
+  displayedColumns = ['id', 'ime', 'prezime', 'datumRodjenja', 'brojReg', 'tim', 'nacionalnost', 'actions'];
 
   dataSource: MatTableDataSource<Igrac>;
 
@@ -23,21 +25,27 @@ export class IgracComponent implements OnInit {
   @ViewChild(MatSort)
   sort: MatSort;
 
-  constructor(public IgracService: IgracService,
-              public dialog: MatDialog) {
+  constructor(public igracService: IgracService,
+    public dialog: MatDialog) {
 
-  }
+    }
 
   ngOnInit(): void {
     this.loadData();
   }
 
   public loadData(){
-    this.IgracService.getAllIgrac().subscribe(data => {
+    this.igracService.getAllIgrac().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sortingDataAccessor = (data, property) => {
-        switch(property) {
+           switch(property) {
           case 'id': return data[property];
+          case 'nacionalnost': return data[property].naziv;
+          case 'tim': return data[property].naziv;
+          case 'ime': return data[property];
+          case 'prezime': return data[property];
+          case 'brojReg': return data[property];
+          case 'datumRodjenja': return data[property].toString();
           default: return "default";
         }
       };
@@ -47,8 +55,8 @@ export class IgracComponent implements OnInit {
     });
   }
 
-  public openDialog(flag: number, id: number, ime: string, prezime: string, brojReg: string, datumRodjenja: Date) {
-    const dialog = this.dialog.open(IgracDialogComponent, {data: {id: id, ime: ime, prezime: prezime, brojReg: brojReg, datumRodjenja: datumRodjenja}});
+  public openDialog(flag: number, id: number, nacionalnost: Nacionalnost, tim: Tim, ime: string, prezime: string, brojReg: string, datumRodjenja: Date) {
+    const dialog = this.dialog.open(IgracDialogComponent, {data: {id: id, nacionalnost: nacionalnost, tim: tim,ime: ime, prezime: prezime, brojReg: brojReg, datumRodjenja: datumRodjenja}});
     dialog.componentInstance.flag = flag;
     dialog.afterClosed().subscribe(result => {
       if (result === 1) {

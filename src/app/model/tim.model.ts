@@ -5,4 +5,5 @@ export class Tim {
 	naziv: string;
 	osnovan: Date;
 	sediste: string;
+	liga: Liga;
 }

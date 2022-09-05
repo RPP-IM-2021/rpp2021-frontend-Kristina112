@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { TimDialogComponent } from '../dialog/tim-dialog/tim-dialog.component';
 import { Tim } from '../model/tim.model';
 import { TimService } from '../service/tim.service';
+import { Liga } from '../model/liga.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tim',
@@ -14,7 +16,7 @@ import { TimService } from '../service/tim.service';
 })
 export class TimComponent implements OnInit {
 
-  displayedColumns = ['id', 'naziv', 'sediste', "osnovan"];
+  displayedColumns = ['id', 'naziv', 'sediste', 'osnovan', 'liga', 'actions'];
 
   dataSource: MatTableDataSource<Tim>;
 
@@ -38,6 +40,10 @@ export class TimComponent implements OnInit {
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch(property) {
           case 'id': return data[property];
+          case 'naziv': return data[property];
+          case 'sediste': return data[property];
+          case 'osnovan': return data[property].toString();
+          case 'liga': return data[property].naziv;
           default: return "default";
         }
       };
@@ -47,8 +53,8 @@ export class TimComponent implements OnInit {
     });
   }
 
-  public openDialog(flag: number, id: number, naziv: string, sediste: string, osnovan: Date) {
-    const dialog = this.dialog.open(TimDialogComponent, {data: {id: id, naziv: naziv, sediste: sediste, osnovan: osnovan}});
+  public openDialog(flag: number, id: number, naziv: string, sediste: string, osnovan: Date, liga: string) {
+    const dialog = this.dialog.open(TimDialogComponent, {data: {id: id, naziv: naziv, sediste: sediste, osnovan: osnovan, liga: liga}});
     dialog.componentInstance.flag = flag;
     dialog.afterClosed().subscribe(result => {
       if (result === 1) {

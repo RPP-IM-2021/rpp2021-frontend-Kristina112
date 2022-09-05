@@ -24,22 +24,22 @@ export class LigaDialogComponent implements OnInit {
 
   public add(): void {
     this.ligaService.addLiga(this.data);
-    this.snackBar.open('UspeÅ¡no dodat lige ' + this.data.naziv, 'Uredu', {duration: 2000});
+    this.snackBar.open('Uspešno dodata liga ' + this.data.naziv, 'U redu', {duration: 2000});
   }
 
   public update(): void {
     this.ligaService.updateLiga(this.data);
-    this.snackBar.open('UspeÅ¡no izmenjen lige ' + this.data.naziv, "Uredu", {duration: 2000});
+    this.snackBar.open('Uspešno izmenjena liga ' + this.data.naziv, "U redu", {duration: 2000});
   }
 
   public delete(): void {
     this.ligaService.deleteLiga(this.data.id);
-    this.snackBar.open("UspeÅ no obrisan liga ' " + this.data.id, "Uredu", {duration: 2000});
+    this.snackBar.open("Uspešno obrisana liga ' " + this.data.id, "U redu", {duration: 2000});
   }
 
   public cancel(): void {
     this.dialogRef.close();
-    this.snackBar.open("Odustali ste", 'Uredu', {duration:2000});
+    this.snackBar.open("Odustali ste", 'U redu', {duration:2000});
   }
 
 }

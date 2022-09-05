@@ -7,12 +7,12 @@ import { Tim } from '../model/tim.model';
 export class TimService {
 
   //End Point u Development modu
-  //private readonly API_URL = 'http://localhost:8082/tim/';
-
-  //End Point u Deployment modu
-  private readonly API_URL = 'https://rpp-backend.herokuapp.com/tim/';
+  private readonly API_URL = 'http://localhost:8080/tim/';
+  private readonly API_URL_P = 'http://localhost:8080/tim/';
 
   dataChange: BehaviorSubject<Tim[]> = new BehaviorSubject<Tim[]>([]);
+
+  success = false;
 
   constructor(private httpClient: HttpClient) {
 
@@ -30,7 +30,7 @@ export class TimService {
   }
 
   public addTim(tim : Tim): void {
-    this.httpClient.post(this.API_URL,tim).subscribe();
+    this.httpClient.post(this.API_URL, tim).subscribe();
   }
 
   public updateTim(tim: Tim): void {

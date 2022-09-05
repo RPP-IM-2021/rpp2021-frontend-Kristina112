@@ -7,10 +7,8 @@ import { Nacionalnost } from '../model/nacionalnost.model';
 export class NacionalnostService {
 
   //End Point u Development modu
-  //private readonly API_URL = 'http://localhost:8082/nacionalnost/';
-
-  //End Point u Deployment modu
-  private readonly API_URL = 'https://rpp-backend.herokuapp.com/nacionalnost/';
+  private readonly API_URL = 'http://localhost:8080/nacionalnost/';
+  private readonly API_URL_P = 'http://localhost:8080/nacionalnost/';
 
   dataChange: BehaviorSubject<Nacionalnost[]> = new BehaviorSubject<Nacionalnost[]>([]);
 
@@ -18,6 +16,7 @@ export class NacionalnostService {
 
   }
 
+ 
   public getAllNacionalnost(): Observable<Nacionalnost[]> {
     this.httpClient.get<Nacionalnost[]>(this.API_URL).subscribe(data => {
       this.dataChange.next(data);

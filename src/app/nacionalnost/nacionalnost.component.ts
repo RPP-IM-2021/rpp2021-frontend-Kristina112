@@ -14,7 +14,7 @@ import { NacionalnostService } from '../service/nacionalnost.service';
 })
 export class NacionalnostComponent implements OnInit {
 
-  displayedColumns = ['id', 'naziv', 'skracenica'];
+  displayedColumns = ['id', 'naziv', 'skracenica', 'actions'];
 
   dataSource: MatTableDataSource<Nacionalnost>;
 
@@ -38,6 +38,8 @@ export class NacionalnostComponent implements OnInit {
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch(property) {
           case 'id': return data[property];
+          case 'skracenica': return data[property];
+          case 'naziv': return data[property];
           default: return "default";
         }
       };

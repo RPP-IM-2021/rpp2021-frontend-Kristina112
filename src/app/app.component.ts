@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'rpp2022-frontend';
+  title = 'rpp2021-frontend-Kristina112';
 }
