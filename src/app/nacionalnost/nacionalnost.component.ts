@@ -3,32 +3,27 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { LigaDialogComponent } from '../dialog/liga-dialog/liga-dialog.component';
-import { Liga } from '../model/liga.model';
-import { LigaService } from '../service/liga.service';
+import { NacionalnostDialogComponent } from '../dialog/nacionalnost-dialog/nacionalnost-dialog.component';
+import { Nacionalnost } from '../model/nacionalnost.model';
+import { NacionalnostService } from '../service/nacionalnost.service';
 
 @Component({
-  selector: 'app-liga',
-  templateUrl: './liga.component.html',
-  styleUrls: ['./liga.component.css']
+  selector: 'app-nacionalnost',
+  templateUrl: './nacionalnost.component.html',
+  styleUrls: ['./nacionalnost.component.css']
 })
-export class LigaComponent implements OnInit {
+export class NacionalnostComponent implements OnInit {
 
-<<<<<<< HEAD
-  displayedColumns = ['id', 'naziv', 'oznaka', 'actions'];
-=======
-  displayedColumns = ['id', 'naziv', 'oznaka'];
->>>>>>> master
+  displayedColumns = ['id', 'naziv', 'skracenica', 'actions'];
 
-  //dataSource: Observable<Liga[]>;
-  dataSource: MatTableDataSource<Liga>;
+  dataSource: MatTableDataSource<Nacionalnost>;
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
   @ViewChild(MatSort)
   sort: MatSort;
 
-  constructor(public ligaService: LigaService,
+  constructor(public nacionalnostService: NacionalnostService,
               public dialog: MatDialog) {
 
   }
@@ -38,17 +33,13 @@ export class LigaComponent implements OnInit {
   }
 
   public loadData(){
-    //this.dataSource = this.LigaService.getAllLiga();
-    this.ligaService.getAllLiga().subscribe(data => {
+    this.nacionalnostService.getAllNacionalnost().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sortingDataAccessor = (data, property) => {
         switch(property) {
           case 'id': return data[property];
-<<<<<<< HEAD
+          case 'skracenica': return data[property];
           case 'naziv': return data[property];
-          case 'oznaka': return data[property];
-=======
->>>>>>> master
           default: return "default";
         }
       };
@@ -58,12 +49,8 @@ export class LigaComponent implements OnInit {
     });
   }
 
-  public openDialog(flag: number, id: number, naziv: string, oznaka: string) {
-<<<<<<< HEAD
-    const dialog = this.dialog.open(LigaDialogComponent, {data: {id: id, naziv: naziv, oznaka: oznaka}});
-=======
-    const dialog = this.dialog.open(LigaDialogComponent, {data: {id: id, oznaka: oznaka, naziv: naziv}});
->>>>>>> master
+  public openDialog(flag: number, id: number, naziv: string, skracenica: string) {
+    const dialog = this.dialog.open(NacionalnostDialogComponent, {data: {id: id, skracenica: skracenica, naziv: naziv}});
     dialog.componentInstance.flag = flag;
     dialog.afterClosed().subscribe(result => {
       if (result === 1) {
@@ -78,8 +65,4 @@ export class LigaComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

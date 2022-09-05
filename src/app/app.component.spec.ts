@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'rpp2022-frontend'`, () => {
+  it(`should have as title 'rpp2021-frontend-Kristina112'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('rpp2022-frontend');
+    expect(app.title).toEqual('rpp2021-frontend-Kristina112d');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('rpp2022-frontend app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('rpp2021-frontend-Kristina112 app is running!');
   });
 });

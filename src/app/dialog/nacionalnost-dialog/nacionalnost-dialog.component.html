@@ -10,6 +10,22 @@
     </div>
     <div class="form">
       <mat-form-field>
+<<<<<<< HEAD
+        <input matInput placeholder="Skracenica" [(ngModel)]="data.skracenica" name="skracenica" [disabled] = "flag == 3">
+      </mat-form-field>
+    </div>
+    <div class="form">
+    <div mat-dialog-actions>
+      <button mat-button *ngIf="flag == 1" type="submit" [mat-dialog-close]="1"
+      (click)="add()" [disabled]="!formControl.valid">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 2" type="submit" [mat-dialog-close]="1"
+      (click)="update()" [disabled]="!formControl.valid">Sačuvaj</button>
+      <button mat-button *ngIf="flag == 3" type="submit" [mat-dialog-close]="1"
+      (click)="delete()">Obriši</button>
+      <button mat-button (click)="cancel()">Poništi</button>
+    </div>
+</div>
+=======
         <input matInput placeholder="Skracenica" [(ngModel)]="data.nacionalnosti" name="nacionalnosti" [disabled] = "flag == 3">
       </mat-form-field>
     </div>
@@ -24,3 +40,4 @@
     </div>
   </form>
 </div>
+>>>>>>> master

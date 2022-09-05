@@ -7,6 +7,15 @@ import { Tim } from '../model/tim.model';
 export class TimService {
 
   //End Point u Development modu
+<<<<<<< HEAD
+  private readonly API_URL = 'http://localhost:8080/tim/';
+  private readonly API_URL_P = 'http://localhost:8080/tim/';
+
+  dataChange: BehaviorSubject<Tim[]> = new BehaviorSubject<Tim[]>([]);
+
+  success = false;
+
+=======
   //private readonly API_URL = 'http://localhost:8082/tim/';
 
   //End Point u Deployment modu
@@ -14,6 +23,7 @@ export class TimService {
 
   dataChange: BehaviorSubject<Tim[]> = new BehaviorSubject<Tim[]>([]);
 
+>>>>>>> master
   constructor(private httpClient: HttpClient) {
 
   }
@@ -30,7 +40,11 @@ export class TimService {
   }
 
   public addTim(tim : Tim): void {
+<<<<<<< HEAD
+    this.httpClient.post(this.API_URL, tim).subscribe();
+=======
     this.httpClient.post(this.API_URL,tim).subscribe();
+>>>>>>> master
   }
 
   public updateTim(tim: Tim): void {
@@ -41,5 +55,9 @@ export class TimService {
     this.httpClient.delete(this.API_URL + id).subscribe();
   }
 
+<<<<<<< HEAD
+}
+=======
 }
 
+>>>>>>> master
